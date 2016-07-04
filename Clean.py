@@ -21,6 +21,7 @@ file = open("E:/tmp/Games/SPE 0414_ACTIVECARTONCONTENT.txt", 'r')
 # f = open("E:/tmp/Games/SPE 0133_ACTIVECARTONCONTENT_CLEAN.txt", 'w')
 f = open("E:/tmp/Games/SPE 0414_ACTIVECARTONCONTENT_CLEAN.txt", 'w')
 
+gamecode = "0414-"
 newline = ""
 splitedline = [""]
 parseline = True
@@ -40,7 +41,7 @@ for line in file:
     for item in splitedline:
         if "Box:" in item and parseline:
             newline += line
-        if "0414-" in item and parseline:
+        if gamecode in item and parseline:
             newline += item.replace('-', '') + "\n"
 
     if len(newline.strip()) > 0:
