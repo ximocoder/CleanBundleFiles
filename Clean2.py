@@ -1,33 +1,25 @@
-# File for cleaning bundle files
-# ximo.coder@gmail.com
+
+# SSGame0601Ship01Packs-v1
 
 
+file = open("E:/tmp\SSGame0601Ship01Packs-v1.txt", 'r')
+# file = open("E:/tmp/Games/SPE 0414_ACTIVECARTONCONTENT.txt", 'r')
 
-# file = open("E:/tmp/Games/SPE 0133_ACTIVECARTONCONTENT.txt", 'r')
-file = open("E:/tmp/Games/SPE 0414_ACTIVECARTONCONTENT.txt", 'r')
+f = open("E:/tmp\SSGame0601Ship01Packs-v1_CLEAN.txt", 'w')
+#f = open("E:/tmp/Games/SPE 0414_ACTIVECARTONCONTENT_CLEAN_FIX.txt", 'w')
 
-# f = open("E:/tmp/Games/SPE 0133_ACTIVECARTONCONTENT_CLEAN.txt", 'w')
-f = open("E:/tmp/Games/SPE 0414_ACTIVECARTONCONTENT_CLEAN.txt", 'w')
-
+gamecode = "0601"
+newline = ""
+splitedline = [""]
 
 num = 0
 for line in file:
-    splitedline = line.split(' ', -1)
-
-    if boxstr in line:
-        num = splitedline[2].strip()
-    inum = int(num)
-    if inum in range(71, 75) or inum in range(77, 81) or inum in range(83, 87) or inum in range(89, 93) \
-            or inum in range(95, 99) or inum in range(101, 125):
-        parseline = True
-    else:
-        parseline = False
-
-    for item in splitedline:
-        if boxstr in item and parseline:
-            newline += line
-        if gamecode in item and parseline:
-            newline += item.replace('-', '') + "\n"
+    splitedline = line.split("\t", -1)
+    firstitem = splitedline[0].strip()
+    if firstitem in '2':
+        num = int(splitedline[3])
+        if num in (49, 67, 80, 162, 173, 180, 184, 198, 199, 212):
+            newline += splitedline[1]
 
     if len(newline.strip()) > 0:
         f.write(newline + '\r\n')
