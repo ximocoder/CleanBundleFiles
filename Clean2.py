@@ -1,5 +1,7 @@
 
-# SSGame0601Ship01Packs-v1
+# SSGame0601Ship01Packs-
+#for bundles (49, 67, 80, 162, 173, 180, 184, 198, 199, 212):
+
 
 
 file = open("E:/tmp\SSGame0601Ship01Packs-v1.txt", 'r')
